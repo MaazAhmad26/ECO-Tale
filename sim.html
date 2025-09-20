@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulate - Eco-Tales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./sim.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                <span>Eco-Tales</span>
+            </div>
+              <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./learn.html">Learn</a>
+                <a href="./sim.html">Simulate</a>
+                <a href="./act.html">Live Earthquakes</a>
+                <a href="./dashboard.html">Live Dashboard</a>
+                <a href="./about.html">About Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Climate Impact Simulator</h1>
+        <div class="breadcrumb">
+            <a href="./index.html">Home</a> > <span>Simulate</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Explore Climate Scenarios</h2>
+        <p class="text-center">Adjust the sliders to see how different factors contribute to climate change and what
+            impact they have on our planet.</p>
+
+        <div class="scenario-buttons">
+            <div class="scenario-btn active" data-scenario="current">
+                <h3>Current Path</h3>
+                <p>Based on current policies</p>
+            </div>
+            <div class="scenario-btn" data-scenario="optimistic">
+                <h3>Optimistic</h3>
+                <p>Ambitious climate action</p>
+            </div>
+            <div class="scenario-btn" data-scenario="pessimistic">
+                <h3>Pessimistic</h3>
+                <p>Limited action taken</p>
+            </div>
+            <div class="scenario-btn" data-scenario="custom">
+                <h3>Custom</h3>
+                <p>Create your own scenario</p>
+            </div>
+        </div>
+
+        <div class="simulation-container">
+            <div class="control-panel">
+                <div class="control-group">
+                    <h3><i class="fas fa-bolt"></i> Energy Production</h3>
+                    <div class="slider-container">
+                        <div class="slider-label">
+                            <span>Fossil Fuels</span>
+                            <span id="energy-value">50%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="slider slider-energy"
+                            id="energy-slider">
+                    </div>
+                    <p>How much of our energy comes from renewable sources vs. fossil fuels.</p>
+                </div>
+
+                <div class="control-group">
+                    <h3><i class="fas fa-car"></i> Transportation</h3>
+                    <div class="slider-container">
+                        <div class="slider-label">
+                            <span>Conventional Vehicles</span>
+                            <span id="transport-value">70%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="70" class="slider slider-transport"
+                            id="transport-slider">
+                    </div>
+                    <p>The percentage of electric vehicles and public transport usage.</p>
+                </div>
+
+                <div class="control-group">
+                    <h3><i class="fas fa-leaf"></i> Agriculture & Land Use</h3>
+                    <div class="slider-container">
+                        <div class="slider-label">
+                            <span>Traditional Farming</span>
+                            <span id="agriculture-value">60%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="60" class="slider slider-agriculture"
+                            id="agriculture-slider">
+                    </div>
+                    <p>How sustainable our farming and forestry practices are.</p>
+                </div>
+
+                <div class="control-group">
+                    <h3><i class="fas fa-industry"></i> Industrial Activity</h3>
+                    <div class="slider-container">
+                        <div class="slider-label">
+                            <span>High Emission</span>
+                            <span id="industry-value">65%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="65" class="slider slider-industry"
+                            id="industry-slider">
+                    </div>
+                    <p>The level of emissions from industrial processes and manufacturing.</p>
+                </div>
+
+                <button id="simulate-btn" class="btn">Run Simulation</button>
+                <button id="reset-btn" class="btn btn-outline" style="margin-left: 1rem;">Reset</button>
+            </div>
+
+            <div class="results-panel">
+                <div class="climate-visualization">
+                    <div class="temperature-display">+1.2°C</div>
+                    <div class="planet" id="climate-planet"></div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="impact-chart"></canvas>
+                </div>
+
+                <div class="impact-summary">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Projected Impacts</h3>
+                    <div class="impact-item">
+                        <i class="fas fa-temperature-high"></i>
+                        <span>Global temperature rise: <strong>+1.2°C</strong> by 2100</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-water"></i>
+                        <span>Sea level rise: <strong>0.4 meters</strong> by 2100</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-tree"></i>
+                        <span>Species at risk: <strong>15%</strong> of assessed species</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Extreme weather events: <strong>Moderate increase</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-3">
+            <h2 class="section-title">Share Your Findings</h2>
+            <p>Discuss your simulation results with others or learn how to take action.</p>
+            <div style="margin-top: 2rem;">
+                <a href="#" class="btn" style="margin-right: 1rem;"><i class="fas fa-share-alt"></i> Share Results</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-lightbulb"></i> Action Ideas</a>
+            </div>
+        </div>
+    </div>
+
+     <footer>
+        <div class="footer-content">
+            <h3>Join the Movement for Climate Education</h3>
+            <p>Eco-Tales is working to make climate education accessible to everyone, everywhere.</p>
+
+            <div class="footer-links">
+                <a href="./about.html">About Us</a>
+                <a href="./learn.html">Learn</a>
+                <a href="./dashboard.html">Live Dashboard</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
+            <p>&copy; 2025 Eco-Tales. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="./sim.js"></script>
+</body>
+
+</html>

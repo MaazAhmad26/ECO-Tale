@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earthquake Monitoring - ClimateLearn AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./act.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                <span>ClimateLearn AI</span>
+            </div>
+             <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./learn.html">Learn</a>
+                <a href="./sim.html">Simulate</a>
+                <a href="./act.html">Live Earthquakes</a>
+                <a href="./dashboard.html">Live Dashboard</a>
+                <a href="./about.html">About Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Pakistan Earthquake Monitoring</h1>
+        <div class="breadcrumb">
+            <a href="#">Home</a> > <span>Earthquake Alert</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="alert-banner" id="earthquakeAlert">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+                <strong>LIVE ALERT: </strong>
+                <span id="alertText">No recent earthquakes detected in Pakistan</span>
+            </div>
+            <button id="muteAlert" class="btn-outline" style="margin-left: auto; padding: 0.3rem 0.8rem; font-size: 0.9rem;">
+                <i class="fas fa-volume-mute"></i> Mute
+            </button>
+        </div>
+        
+        <h2 class="section-title">Live Earthquake Status</h2>
+        <p class="text-center">Real-time monitoring of seismic activity in Pakistan and surrounding regions</p>
+        
+        <div class="earthquake-dashboard">
+            <div class="live-status">
+                <div class="status-card">
+                    <h3><i class="fas fa-bolt"></i> Current Status</h3>
+                    <div class="status-value" id="currentStatus">Normal</div>
+                    <p>Last updated: <span id="lastUpdated">Just now</span></p>
+                </div>
+                
+                <div class="status-card">
+                    <h3><i class="fas fa-ruler"></i> Latest Magnitude</h3>
+                    <div class="status-value" id="latestMagnitude">-</div>
+                    <p>Location: <span id="latestLocation">-</span></p>
+                </div>
+                
+                <div class="status-card">
+                    <h3><i class="fas fa-clock"></i> Recent Activity (24h)</h3>
+                    <div class="status-value" id="recentActivity">2</div>
+                    <p>Earthquakes detected in Pakistan region</p>
+                </div>
+            </div>
+            
+            <div class="map-container" id="quakeMap">
+                <!-- Earthquake markers will be added dynamically -->
+                <div class="earthquake-marker" style="top: 40%; left: 45%; display: none;" id="marker1"></div>
+                <div class="earthquake-marker" style="top: 60%; left: 50%; display: none;" id="marker2"></div>
+            </div>
+        </div>
+        
+        <div class="recent-earthquakes">
+            <h2 class="section-title">Recent Earthquakes</h2>
+            <p class="text-center">Historical data for seismic events in Pakistan over the past 30 days</p>
+            
+            <table class="earthquake-table">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Location</th>
+                        <th>Magnitude</th>
+                        <th>Depth</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody id="earthquakeTableBody">
+                    <tr>
+                        <td>Oct 15, 2023 08:23 PST</td>
+                        <td>Hindu Kush Region</td>
+                        <td><span class="magnitude medium">4.7</span></td>
+                        <td>120 km</td>
+                        <td>Minor shaking reported</td>
+                    </tr>
+                    <tr>
+                        <td>Oct 12, 2023 14:56 PST</td>
+                        <td>Northern Areas</td>
+                        <td><span class="magnitude low">3.8</span></td>
+                        <td>80 km</td>
+                        <td>No damage reported</td>
+                    </tr>
+                    <tr>
+                        <td>Oct 5, 2023 05:41 PST</td>
+                        <td>Balochistan</td>
+                        <td><span class="magnitude medium">5.1</span></td>
+                        <td>60 km</td>
+                        <td>Light damage in rural areas</td>
+                    </tr>
+                    <tr>
+                        <td>Sep 28, 2023 19:30 PST</td>
+                        <td>Khyber Pakhtunkhwa</td>
+                        <td><span class="magnitude low">4.2</span></td>
+                        <td>100 km</td>
+                        <td>Felt in Peshawar, no damage</td>
+                    </tr>
+                    <tr>
+                        <td>Sep 20, 2023 11:15 PST</td>
+                        <td>Azad Kashmir</td>
+                        <td><span class="magnitude high">5.8</span></td>
+                        <td>40 km</td>
+                        <td>Moderate damage, 12 injured</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="impact-section">
+            <h2 class="section-title">Earthquake Impact</h2>
+            <p class="text-center">Understanding the human and economic impact of seismic events in Pakistan</p>
+            
+            <div class="impact-cards">
+                <div class="impact-card">
+                    <i class="fas fa-users"></i>
+                    <h3>125,000+</h3>
+                    <p>People affected by earthquakes in Pakistan since 2005</p>
+                </div>
+                
+                <div class="impact-card">
+                    <i class="fas fa-home"></i>
+                    <h3>400,000+</h3>
+                    <p>Homes damaged or destroyed in major earthquakes</p>
+                </div>
+                
+                <div class="impact-card">
+                    <i class="fas fa-hospital"></i>
+                    <h3>15,000+</h3>
+                    <p>Serious injuries from earthquakes in the past two decades</p>
+                </div>
+                
+                <div class="impact-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>$10B+</h3>
+                    <p>Economic impact of major earthquakes in Pakistan</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preparedness-section">
+            <h2 class="section-title">Earthquake Preparedness</h2>
+            <p class="text-center">How to stay safe during and after an earthquake</p>
+            
+            <div class="preparedness-cards">
+                <div class="preparedness-card">
+                    <h3><i class="fas fa-check-circle"></i> Before an Earthquake</h3>
+                    <ul>
+                        <li>Secure heavy furniture to walls</li>
+                        <li>Create an emergency plan with family</li>
+                        <li>Prepare an emergency kit with supplies</li>
+                        <li>Identify safe spots in each room</li>
+                    </ul>
+                </div>
+                
+                <div class="preparedness-card">
+                    <h3><i class="fas fa-exclamation-circle"></i> During an Earthquake</h3>
+                    <ul>
+                        <li>Drop, Cover, and Hold On</li>
+                        <li>Stay away from windows and heavy objects</li>
+                        <li>If indoors, stay indoors</li>
+                        <li>If outdoors, move to an open area</li>
+                    </ul>
+                </div>
+                
+                <div class="preparedness-card">
+                    <h3><i class="fas fa-first-aid"></i> After an Earthquake</h3>
+                    <ul>
+                        <li>Check for injuries and provide assistance</li>
+                        <li>Inspect utilities for damage</li>
+                        <li>Listen to official information</li>
+                        <li>Be prepared for aftershocks</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-3">
+                <a href="#" class="btn"><i class="fas fa-download"></i> Download Preparedness Guide</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>ClimateLearn AI - Earthquake Alert System</h3>
+            <p>Providing real-time earthquake monitoring and education for Pakistan</p>
+            
+            <div class="footer-links">
+                <a href="#">About This Feature</a>
+                <a href="#">Data Sources</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            
+            <p>Data refreshes automatically every 5 minutes</p>
+            <p>&copy; 2023 ClimateLearn AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./act.js"></script>
+</body>
+</html>

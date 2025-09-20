@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Flood Impact Dashboard - Eco-Tales</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="./dashboard.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <nav>
+      <div class="logo">
+        <i class="fas fa-seedling"></i>
+        <span> Eco-Tales</span>
+      </div>
+        <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./learn.html">Learn</a>
+                <a href="./sim.html">Simulate</a>
+                <a href="./act.html">Live Earthquakes</a>
+                <a href="./dashboard.html">Live Dashboard</a>
+                <a href="./about.html">About Us</a>
+            </div>
+    </nav>
+  </header>
+
+  <section class="dashboard-header">
+    <h1>Flood Impact Dashboard</h1>
+    <div class="status" aria-label="data status">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Live • Updated <span id="last-updated">just now</span></span>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <!-- Stats Cards -->
+      <section aria-labelledby="stats-heading" class="stats" role="region">
+        <h2 id="stats-heading" class="visually-hidden">Key statistics</h2>
+
+        <div class="card">
+          <div>
+            <p class="card-title">Affected People</p>
+            <div class="card-value" id="affected-people">12,847</div>
+          </div>
+          <span class="trend" id="affected-trend">+2.3% today</span>
+        </div>
+
+        <div class="card">
+          <div>
+            <p class="card-title">Areas Flooded</p>
+            <div class="card-value" id="areas-flooded">89</div>
+          </div>
+          <span class="trend" id="areas-trend">Stable</span>
+        </div>
+
+        <div class="card">
+          <div>
+            <p class="card-title">Relief Centers</p>
+            <div class="card-value" id="relief-centers">24</div>
+          </div>
+          <span class="trend" id="relief-trend">+1 this week</span>
+        </div>
+
+        <div class="card">
+          <div>
+            <p class="card-title">Avg. Water Level (m)</p>
+            <div class="card-value" id="avg-water">2.1</div>
+          </div>
+          <span class="trend" id="water-trend">+0.2</span>
+        </div>
+      </section>
+
+      <!-- Map Panel -->
+      <section class="map-panel" aria-labelledby="map-title" role="region">
+        <div class="panel-header">
+          <h2 id="map-title" class="panel-title">Select Region</h2>
+        </div>
+        <div class="panel-body">
+          <div id="map"></div>
+          <div class="map-overlay">
+            <div class="region-selector">
+              <label for="region-select">Or select region:</label>
+              <select id="region-select">
+                <option value="global">Global Overview</option>
+                <option value="pakistan">Pakistan</option>
+                <option value="india">India</option>
+                <option value="bangladesh">Bangladesh</option>
+                <option value="china">China</option>
+                <option value="indonesia">Indonesia</option>
+                <option value="usa">United States</option>
+                <option value="nepal">Nepal</option>
+                <option value="thailand">Thailand</option>
+                <option value="vietnam">Vietnam</option>
+                <option value="philippines">Philippines</option>
+                <option value="brazil">Brazil</option>
+                <option value="nigeria">Nigeria</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chart Panel -->
+      <section class="panel" aria-labelledby="chart-title" role="region">
+        <div class="panel-header">
+          <h2 id="chart-title" class="panel-title">7‑Day Water Level Trend</h2>
+          <div class="panel-header-flex">
+            <span class="badge badge-water-level">Water level (m)</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="chart-wrap">
+            <canvas id="chart" aria-label="Bar chart showing 7-day water level trend" role="img"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Table Panel -->
+      <section class="table-wrap" aria-labelledby="table-title" role="region">
+        <div class="table-header">
+          <h2 id="table-title" class="table-title">Flood‑Affected Regions</h2>
+          <span class="badge badge-placeholder" id="region-name">Global Data</span>
+        </div>
+        <div class="table-responsive">
+          <table aria-describedby="table-title">
+            <thead>
+              <tr>
+                <th scope="col">Region</th>
+                <th scope="col">Population</th>
+                <th scope="col">Affected</th>
+                <th scope="col">Water Level (m)</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody id="region-data">
+              <!-- Data will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <h3>Join the Movement for Climate Education</h3>
+      <p>Eco-Tales is working to make climate education accessible to everyone, everywhere.</p>
+
+      <div class="footer-links">
+        <a href="./about.html">About Us</a>
+        <a href="./learn.html">Learn</a>
+        <a href="./dashboard.html">Live Dashboard</a>
+        <a href="#">Terms of Service</a>
+      </div>
+
+      <p>&copy; 2025 Eco-Tales. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="./dashboard.js"></script>
+</body>
+
+</html>

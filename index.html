@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Tales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./index.css"">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                <span> Eco-Tales</span>
+            </div>
+             <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./learn.html">Learn</a>
+                <a href="./sim.html">Simulate</a>
+                <a href="./act.html">Live Earthquakes</a>
+                <a href="./dashboard.html">Live Dashboard</a>
+                <a href="./about.html">About Us</a>
+            </div>
+            <div class="auth-icons" id="auth-icons">
+                <i class="fas fa-user-plus auth-icon" id="register-icon"></i>
+                <i class="fas fa-sign-in-alt auth-icon" id="login-icon"></i>
+            </div>
+            <div class="user-menu" id="user-menu" style="display: none;">
+                <div class="user-avatar" id="user-avatar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-content">
+            <span class="close-auth" id="close-auth">&times;</span>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="register">Register</div>
+            </div>
+
+            <div class="auth-form active" id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                <button class="auth-btn" id="login-btn">Login</button>
+                <div class="auth-message" id="login-message"></div>
+            </div>
+
+            <div class="auth-form" id="register-form">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" placeholder="Choose a username">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Confirm Password</label>
+                    <input type="password" id="register-confirm" placeholder="Confirm your password">
+                </div>
+                <button class="auth-btn" id="register-btn">Register</button>
+                <div class="auth-message" id="register-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>See the Change. Be the Change.</h1>
+            <p>Interactive climate education with AI, data visualizations, and personalized action plans.</p>
+            <a href="./learn.html" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">How Eco-Tales Work?</h2>
+
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI-Powered Learning</h3>
+                <p>Our intelligent system adapts to your learning style and knowledge level to provide personalized
+                    climate education.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Interactive Simulations</h3>
+                <p>Experience the impact of climate decisions through realistic simulations and see the consequences of
+                    different actions.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Action-Oriented</h3>
+                <p>Get personalized recommendations for actions you can take to reduce your carbon footprint and make a
+                    difference.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Live Dashboard</h3>
+                <p>Explore live environmental indicators and see how your choices shape the planet's future.</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2 class="section-title">Try Our Climate AI Assistant</h2>
+
+            <div class="chat-container">
+                <div class="chat-header">
+                    Climate Learning Assistant
+                </div>
+                <div class="chat-messages">
+                    <div class="message ai-message">
+                        Hi there! I'm your Climate Learning Assistant. How can I help you understand climate change
+                        today? You can ask me about causes, effects, or solutions!
+                    </div>
+                    <div class="message user-message">
+                        What are the main causes of climate change?
+                    </div>
+                    <div class="message ai-message">
+                        Great question! The main causes are:<br>
+                        1. Burning fossil fuels (coal, oil, gas)<br>
+                        2. Deforestation<br>
+                        3. Agriculture<br>
+                        4. Industrial processes<br>
+                        Would you like me to explain any of these in more detail?
+                    </div>
+                    <div class="chat-actions">
+                        <button id="clear-chat-btn" class="btn btn-small">Clear History</button>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Ask a question about climate change...">
+                    <button class="btn">Send</button>
+                </div>
+                <div class="chat-actions">
+                    <button id="clear-chat-btn" class="btn btn-small" style="display: none;">Clear History</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Impact You Can Make</h2>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-bolt"></i>
+                <h3>1.5 tons</h3>
+                <p>Annual CO2 reduction by switching to renewable energy</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-tree"></i>
+                <h3>48 lbs</h3>
+                <p>CO2 absorbed by a single tree each year</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-bicycle"></i>
+                <h3>2.4 tons</h3>
+                <p>Annual CO2 reduction by using sustainable transportation</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-recycle"></i>
+                <h3>1,800 lbs</h3>
+                <p>CO2 reduction from recycling annually</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Join the Movement for Climate Education</h3>
+            <p>Eco-Tales is working to make climate education accessible to everyone, everywhere.</p>
+
+            <div class="footer-links">
+                <a href="./about.html">About Us</a>
+                <a href="./learn.html">Learn</a>
+                <a href="./dashboard.html">Live Dashboard</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
+            <p>&copy; 2025 Eco-Tales. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
